@@ -15,14 +15,6 @@ services:
       - "4318:4318"  # otlp http
       - "9411:9411"   # zipkin
 
-  k6-tracing:
-    image: ghcr.io/grafana/xk6-client-tracing:v0.0.2
-    environment:
-      - ENDPOINT=tempo:4317
-    restart: always
-    depends_on:
-      - tempo
-
   prometheus:
     image: prom/prometheus:latest
     command:
